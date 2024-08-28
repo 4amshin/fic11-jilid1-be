@@ -10,7 +10,9 @@
     </div>
 
     <!--Form-->
-    <form action="index.html" class="mt-10" id="signInForm">
+    <form action="{{ route('login') }}" method="POST" class="mt-10" id="signInForm">
+        @csrf
+        <!--Notification-->
         <div class="hidden px-4 py-3 mb-3 text-sm text-green-500 border border-green-200 rounded-md bg-green-50 dark:bg-green-400/20 dark:border-green-500/50"
             id="successAlert">
             You have <b>successfully</b> signed in.
@@ -18,17 +20,17 @@
 
         <!--Email-->
         <div class="mb-3">
-            <label for="username" class="inline-block mb-2 text-base font-medium">UserName/ Email ID</label>
-            <input type="text" id="username"
+            <label for="email" class="inline-block mb-2 text-base font-medium">Email</label>
+            <input type="text" id="email" name="email"
                 class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200"
-                placeholder="Enter username or email">
-            <div id="username-error" class="hidden mt-1 text-sm text-red-500">Please enter a valid email address.</div>
+                placeholder="Enter email">
+            <div id="email-error" class="hidden mt-1 text-sm text-red-500">Please enter a valid email address.</div>
         </div>
 
         <!--Password-->
         <div class="mb-3">
             <label for="password" class="inline-block mb-2 text-base font-medium">Password</label>
-            <input type="password" id="password"
+            <input type="password" id="password" name="password"
                 class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200"
                 placeholder="Enter password">
             <div id="password-error" class="hidden mt-1 text-sm text-red-500">Password must be at least 8 characters long
@@ -45,9 +47,12 @@
 
         <!--Link Register-->
         <div class="mt-10 text-center">
-            <p class="mb-0 text-slate-500 dark:text-zink-200">Don't have an account ? <a href="auth-register-basic.html"
+            <p class="mb-0 text-slate-500 dark:text-zink-200">Don't have an account ?
+                <a href="{{ route('register') }}"
                     class="font-semibold underline transition-all duration-150 ease-linear text-slate-500 dark:text-zink-200 hover:text-custom-500 dark:hover:text-custom-500">
-                    SignUp</a> </p>
+                    SignUp
+                </a>
+            </p>
         </div>
     </form>
 @endsection

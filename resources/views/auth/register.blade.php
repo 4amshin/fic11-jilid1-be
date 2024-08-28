@@ -10,31 +10,33 @@
     </div>
 
     <!--Form-->
-    <form action="#!" class="mt-10" id="registerForm">
+    <form action="{{ route('register') }}" method="POST" class="mt-10" id="registerForm">
+        @csrf
         <!--Email-->
         <div class="mb-3">
             <label for="email-field" class="inline-block mb-2 text-base font-medium">Email</label>
-            <input type="text" id="email-field"
+            <input type="text" id="email-field" name="'email"
                 class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200"
                 placeholder="Enter email">
             <div id="email-error" class="hidden mt-1 text-sm text-red-500">Please enter a valid email address.</div>
         </div>
 
-        <!--Username-->
-        <div class="mb-3">
-            <label for="username-field" class="inline-block mb-2 text-base font-medium">UserName</label>
-            <input type="text" id="username-field"
-                class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200"
-                placeholder="Enter username">
-            <div id="username-error" class="hidden mt-1 text-sm text-red-500">Please enter a username.</div>
-        </div>
-
         <!--Password-->
         <div class="mb-3">
             <label for="password" class="inline-block mb-2 text-base font-medium">Password</label>
-            <input type="password" id="password"
+            <input type="password" id="password" name="password"
                 class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200"
                 placeholder="Enter password">
+            <div id="password-error" class="hidden mt-1 text-sm text-red-500">Password must be at least 8 characters long
+                and contain both letters and numbers.</div>
+        </div>
+
+        <!--Password Confirmation-->
+        <div class="mb-3">
+            <label for="password_confirmation" class="inline-block mb-2 text-base font-medium">Password Confirmation</label>
+            <input type="password_confirmation" id="password_confirmation" name="password_confirmation"
+                class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200"
+                placeholder="Enter password_confirmation">
             <div id="password-error" class="hidden mt-1 text-sm text-red-500">Password must be at least 8 characters long
                 and contain both letters and numbers.</div>
         </div>
@@ -49,8 +51,11 @@
 
         <!--Link Login-->
         <div class="mt-10 text-center">
-            <p class="mb-0 text-slate-500 dark:text-zink-200">Already have an account ? <a href="auth-login-basic.html"
-                    class="font-semibold underline transition-all duration-150 ease-linear text-slate-500 dark:text-zink-200 hover:text-custom-500 dark:hover:text-custom-500">Login</a>
+            <p class="mb-0 text-slate-500 dark:text-zink-200">Already have an account ?
+                <a href="{{ route('login') }}"
+                    class="font-semibold underline transition-all duration-150 ease-linear text-slate-500 dark:text-zink-200 hover:text-custom-500 dark:hover:text-custom-500">
+                    Login
+                </a>
             </p>
         </div>
     </form>
