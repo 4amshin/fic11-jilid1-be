@@ -91,15 +91,6 @@
 
         <div class="mb-0 w-screen lg:w-[500px] card shadow-lg border-none shadow-slate-100 relative">
             <div class="!px-10 !py-12 card-body">
-                <a href="#!">
-                    <img src="{{ asset('assets/images/logo-light.png') }}" alt="" class="hidden h-6 mx-auto dark:block">
-                    <img src="{{ asset('assets/images/logo-dark.png') }}" alt="" class="block h-6 mx-auto dark:hidden">
-                </a>
-
-                <div class="mt-8 text-center">
-                    <h4 class="mb-1 text-custom-500 dark:text-custom-500">Create your free account</h4>
-                    <p class="text-slate-500 dark:text-zink-200">Get your free starcode account now</p>
-                </div>
 
                 <!--CUSTOM BODY Here-->
                 @yield('content')
