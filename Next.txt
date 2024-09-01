@@ -1,3 +1,9 @@
 - Auth
-    - login dan register telah di implementaisk
-    tetapi ketika tombol SIGNIN diklik tidak berfungsi
+    - bagaimanc cara agar pesan error email dan password
+    - ketika email benar dan passwword salha maka tampil dibawah password pesan bukan maalh di email
+    - TAMBAHAKN FITUR MATA
+    - Tombol REset halaman profiel ketika di klik mengembalikan data ke semula
+
+- Alert tombol x (fungsikan)
+
+=============

@@ -14,6 +14,10 @@ Route::middleware(['auth', 'verified'])->group(function() {
         return view('home');
     })->name('home');
 
+    Route::get('/profile', function() {
+        return view('auth.profile');
+    })->name('profile');
+
     /*----------------------------------------USER--------------------------------------*/
     Route::resource('user', UserController::class);
 });

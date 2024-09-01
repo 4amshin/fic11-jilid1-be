@@ -22,19 +22,26 @@
         <div class="mb-3">
             <label for="email" class="inline-block mb-2 text-base font-medium">Email</label>
             <input type="text" id="email" name="email"
-                class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200"
+                class="form-input @error('email') is-invalid @enderror border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200"
                 placeholder="Enter email">
-            <div id="email-error" class="hidden mt-1 text-sm text-red-500">Please enter a valid email address.</div>
+            @error('email')
+                <div id="email-error" class="mt-1 text-sm text-red-500">
+                    {{ $message }}
+                </div>
+            @enderror
         </div>
 
         <!--Password-->
         <div class="mb-3">
             <label for="password" class="inline-block mb-2 text-base font-medium">Password</label>
             <input type="password" id="password" name="password"
-                class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200"
+                class="form-input @error('password') is-invalid @enderror border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200"
                 placeholder="Enter password">
-            <div id="password-error" class="hidden mt-1 text-sm text-red-500">Password must be at least 8 characters long
-                and contain both letters and numbers.</div>
+            @error('password')
+                <div id="password-error" class="mt-1 text-sm text-red-500">
+                    {{ $message }}
+                </div>
+            @enderror
         </div>
 
         <!--Button-->

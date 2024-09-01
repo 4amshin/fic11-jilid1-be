@@ -24,18 +24,9 @@ class UserSeeder extends Seeder
         ]);
 
         User::factory()->create([
-            'name' => 'Asus Official Store',
-            'email' => 'asus@fic11.id',
-            'role' => 'seller',
-            'email_verified_at' => now(),
-            'unhashed_password' => 'password',
-            'password' => Hash::make('password'),
-        ]);
-
-        User::factory()->create([
-            'name' => 'Infinix Official Store',
-            'email' => 'infinix@fic11.id',
-            'role' => 'seller',
+            'name' => 'Pak Fulan',
+            'email' => 'owner@fic11.id',
+            'role' => 'owner',
             'email_verified_at' => now(),
             'unhashed_password' => 'password',
             'password' => Hash::make('password'),

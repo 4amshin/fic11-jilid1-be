@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreUserRequest;
+use App\Http\Requests\UpdateUserRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Log;
 
 class UserController extends Controller
 {
@@ -12,7 +16,9 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        $users = User::orderBy('created_at', 'desc')->paginate(5);
+
+        return view('admin.users.list_user', compact('users'));
     }
 
     /**
@@ -26,9 +32,15 @@ class UserController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreUserRequest $request)
     {
-        //
+        $validatedData = $request->validated();
+
+        $validatedData['password'] = Hash::make($validatedData['unhashed_password']);
+
+        User::create($validatedData);
+
+        return redirect()->route('user.index')->with('success', 'User Successfully Added');
     }
 
     /**
@@ -36,7 +48,9 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        //
+        // dd($user);
+        Log::info('Data user:', ['user' => $user]);
+        return response()->json($user);
     }
 
     /**
@@ -50,9 +64,15 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, User $user)
+    public function update(UpdateUserRequest $request, User $user)
     {
-        //
+        $validatedData = $request->validated();
+
+        $validatedData['password'] = Hash::make($validatedData['unhashed_password']);
+
+        $user->update($validatedData);
+
+        return redirect()->route('user.index')->with('success', 'User Successfully Updated');
     }
 
     /**

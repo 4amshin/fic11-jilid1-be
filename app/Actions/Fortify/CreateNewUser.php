@@ -28,7 +28,6 @@ class CreateNewUser implements CreatesNewUsers
                 'max:255',
                 Rule::unique(User::class),
             ],
-            'unhashed_password' => ['required', 'string'],
             'password' => $this->passwordRules(),
         ])->validate();
 
