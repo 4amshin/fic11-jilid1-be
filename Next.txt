@@ -7,3 +7,4 @@
 - Alert tombol x (fungsikan)
 
 =============
+- LANJUT VIDEO

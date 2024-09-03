@@ -144,7 +144,8 @@
 
                                                         <!--Tombol Hapus-->
                                                         <div class="remove">
-                                                            <button data-modal-target="deleteModal" id="delete-record"
+                                                            <button data-modal-target="deleteModal"
+                                                                data-user-id="{{ $user->id }}" id="delete-record"
                                                                 class="py-1 text-xs text-white bg-red-500 border-red-500 btn hover:text-white hover:bg-red-600 hover:border-red-600 focus:text-white focus:bg-red-600 focus:border-red-600 focus:ring focus:ring-red-100 active:text-white active:bg-red-600 active:border-red-600 active:ring active:ring-red-100 dark:ring-custom-400/20 remove-item-btn">Remove</button>
                                                         </div>
                                                     </div>
@@ -199,6 +200,17 @@
         document.addEventListener('DOMContentLoaded', function() {
 
             const editButtons = document.querySelectorAll('.edit-item-btn');
+            const deleteButtons = document.querySelectorAll('.remove-item-btn');
+
+            deleteButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const userId = this.getAttribute('data-user-id');
+
+                    const form = document.getElementById('deleteForm');
+                    const actionUrl = form.getAttribute('action').replace(':id', userId);
+                    form.setAttribute('action', actionUrl);
+                });
+            });
 
             editButtons.forEach(button => {
                 button.addEventListener('click', function() {
@@ -222,7 +234,8 @@
                     document.querySelector('#updateUserModal select[name="role"]').value = userRole;
                     document.querySelector('#updateUserModal input[name="email"]').value =
                         userEmail;
-                    document.querySelector('#updateUserModal input[name="unhashed_password"]').value =
+                    document.querySelector('#updateUserModal input[name="unhashed_password"]')
+                        .value =
                         userPassword;
 
                     // Open the modal
