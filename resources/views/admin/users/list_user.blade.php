@@ -171,6 +171,7 @@
                             <!--Pagination-->
                             {{ $users->withQueryString()->links('layout.component.pagination') }}
                         </div>
+
                     </div>
                 </div>
             </div>
@@ -185,6 +186,7 @@
 
     <!--Delete User Modal-->
     @include('admin.users.delete_user_modal')
+
 @endsection
 
 

@@ -45,7 +45,7 @@
 
                 <!--Password-->
                 <div class="mb-4">
-                    <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+                    <label for="unhashed_password" class="block text-sm font-medium text-gray-700">Password</label>
                     <input type="text" name="unhashed_password" id="unhashed_password" class="mt-1 form-input w-full" required>
                 </div>
 
