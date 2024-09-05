@@ -10,6 +10,7 @@ use App\Models\Product;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Storage;
 
 class ProductApiController extends Controller
 {
@@ -18,7 +19,8 @@ class ProductApiController extends Controller
      */
     public function index()
     {
-        $products = Product::paginate(5);
+        $products = Product::all();
+        // $products = Product::paginate(5);
         return ProductResource::collection($products);
     }
 
@@ -29,9 +31,20 @@ class ProductApiController extends Controller
     {
         $validatedData = $request->validated();
 
-        if($validatedData) {
-            $product = Product::create($validatedData);
+        if ($validatedData) {
+            //Image handler
+            if ($request->hasFile('image')) {
+                $file = $request->file('image');
+                $path = 'public/products';
 
+                //create folder if not exist
+                $this->createDirectoryIfNotExists($path);
+
+                $file->store($path);
+                $validatedData['image'] = $file->hashName();
+            }
+
+            $product = Product::create($validatedData);
             return new ProductResource($product);
         }
     }
@@ -51,7 +64,22 @@ class ProductApiController extends Controller
     {
         $validatedData = $request->validated();
 
-        if($validatedData) {
+        if ($validatedData) {
+            //image handler
+            $oldImage = $productApi->image;
+            if ($request->hasFile('image')) {
+                $file = $request->file('image');
+                $path = 'public/products';
+
+                //crate folder if not exist
+                $this->createDirectoryIfNotExists($path);
+
+                $file->store($path);
+                $validatedData['image'] = $file->hashName();
+
+                $this->deleteOldFile($path, $oldImage);
+            }
+
             $productApi->update($validatedData);
 
             return new ProductResource($productApi);
@@ -63,7 +91,8 @@ class ProductApiController extends Controller
      */
     public function destroy(Product $productApi)
     {
-        try{
+        try {
+            $this->deleteOldFile('public/products', $productApi->image);
             $productApi->delete();
 
             return response()->json([
@@ -74,6 +103,20 @@ class ProductApiController extends Controller
                 'message' => 'Deleting Failed',
                 'error' => $e->getMessage(),
             ], Response::HTTP_INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    protected function createDirectoryIfNotExists($path)
+    {
+        if (!Storage::exists($path)) {
+            Storage::makeDirectory($path);
+        }
+    }
+
+    protected function deleteOldFile($path, $oldFile)
+    {
+        if ($oldFile) {
+            Storage::disk($path)->delete($oldFile);
         }
     }
 }

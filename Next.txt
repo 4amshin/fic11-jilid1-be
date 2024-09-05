@@ -9,3 +9,4 @@
 =============
 - pada list product tabel hanya nama yang berfungsi untuk query search
 - Setup API Authorization later
+- API Update Product, ketika mengugnkan form data malah error pas validasi
