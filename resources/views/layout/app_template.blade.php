@@ -37,10 +37,15 @@
         <div class="relative min-h-screen group-data-[sidebar-size=sm]:min-h-sm">
 
             <!--CONTENT-->
-            @yield('content')
+            <div
+                class="group-data-[sidebar-size=lg]:ltr:md:ml-vertical-menu group-data-[sidebar-size=lg]:rtl:md:mr-vertical-menu group-data-[sidebar-size=md]:ltr:ml-vertical-menu-md group-data-[sidebar-size=md]:rtl:mr-vertical-menu-md group-data-[sidebar-size=sm]:ltr:ml-vertical-menu-sm group-data-[sidebar-size=sm]:rtl:mr-vertical-menu-sm pt-[calc(theme('spacing.header')_*_1)] pb-[calc(theme('spacing.header')_*_0.8)] px-4 group-data-[navbar=bordered]:pt-[calc(theme('spacing.header')_*_1.3)] group-data-[navbar=hidden]:pt-0 group-data-[layout=horizontal]:mx-auto group-data-[layout=horizontal]:max-w-screen-2xl group-data-[layout=horizontal]:px-0 group-data-[layout=horizontal]:group-data-[sidebar-size=lg]:ltr:md:ml-auto group-data-[layout=horizontal]:group-data-[sidebar-size=lg]:rtl:md:mr-auto group-data-[layout=horizontal]:md:pt-[calc(theme('spacing.header')_*_1.6)] group-data-[layout=horizontal]:px-3 group-data-[layout=horizontal]:group-data-[navbar=hidden]:pt-[calc(theme('spacing.header')_*_0.9)]">
+                <div class="container-fluid group-data-[content=boxed]:max-w-boxed mx-auto">
+                    @yield('content')
+                </div>
+            </div>
 
             <!--FOOTER-->
-           @include('layout.component.footer')
+            @include('layout.component.footer')
         </div>
 
     </div>
@@ -82,8 +87,7 @@
                                 <span class="shrink-0">
                                     <span
                                         class="flex flex-col h-full gap-1 p-1 ltr:border-r rtl:border-l border-slate-200 dark:border-zink-500">
-                                        <span
-                                            class="block p-1 px-2 mb-2 rounded bg-slate-100 dark:bg-zink-400"></span>
+                                        <span class="block p-1 px-2 mb-2 rounded bg-slate-100 dark:bg-zink-400"></span>
                                         <span class="block p-1 px-2 pb-0 bg-slate-100 dark:bg-zink-500"></span>
                                         <span class="block p-1 px-2 pb-0 bg-slate-100 dark:bg-zink-500"></span>
                                         <span class="block p-1 px-2 pb-0 bg-slate-100 dark:bg-zink-500"></span>
@@ -124,8 +128,7 @@
                 <div id="semi-dark">
                     <div class="flex items-center">
                         <div class="relative inline-block w-10 mr-2 align-middle transition duration-200 ease-in">
-                            <input type="checkbox" name="customDefaultSwitch" value="dark"
-                                id="customDefaultSwitch"
+                            <input type="checkbox" name="customDefaultSwitch" value="dark" id="customDefaultSwitch"
                                 class="absolute block w-5 h-5 transition duration-300 ease-linear border-2 rounded-full appearance-none cursor-pointer border-slate-200 bg-white/80 peer/published checked:bg-white checked:right-0 checked:border-custom-500 arrow-none dark:border-zink-500 dark:bg-zink-500 dark:checked:bg-zink-400 checked:bg-none">
                             <label for="customDefaultSwitch"
                                 class="block h-5 overflow-hidden transition duration-300 ease-linear border rounded-full cursor-pointer border-slate-200 bg-slate-200 peer-checked/published:bg-custom-500 peer-checked/published:border-custom-500 dark:border-zink-500 dark:bg-zink-600"></label>
@@ -151,8 +154,7 @@
                                 <span class="shrink-0">
                                     <span
                                         class="flex flex-col h-full gap-1 p-1 ltr:border-r rtl:border-l border-slate-200 dark:border-zink-500">
-                                        <span
-                                            class="block p-1 px-2 mb-2 rounded bg-slate-100 dark:bg-zink-400"></span>
+                                        <span class="block p-1 px-2 mb-2 rounded bg-slate-100 dark:bg-zink-400"></span>
                                         <span class="block p-1 px-2 pb-0 bg-slate-100 dark:bg-zink-500"></span>
                                         <span class="block p-1 px-2 pb-0 bg-slate-100 dark:bg-zink-500"></span>
                                         <span class="block p-1 px-2 pb-0 bg-slate-100 dark:bg-zink-500"></span>
@@ -180,8 +182,7 @@
                                 <span class="shrink-0">
                                     <span
                                         class="flex flex-col h-full gap-1 p-1 ltr:border-r rtl:border-l border-slate-200 dark:border-zink-500">
-                                        <span
-                                            class="block p-1 px-2 mb-2 rounded bg-slate-100 dark:bg-zink-400"></span>
+                                        <span class="block p-1 px-2 mb-2 rounded bg-slate-100 dark:bg-zink-400"></span>
                                         <span class="block p-1 px-2 pb-0 bg-slate-100 dark:bg-zink-500"></span>
                                         <span class="block p-1 px-2 pb-0 bg-slate-100 dark:bg-zink-500"></span>
                                         <span class="block p-1 px-2 pb-0 bg-slate-100 dark:bg-zink-500"></span>

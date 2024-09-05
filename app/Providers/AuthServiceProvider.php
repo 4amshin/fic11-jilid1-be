@@ -11,10 +11,10 @@ use Illuminate\Support\Facades\Gate;
 class AuthServiceProvider extends ServiceProvider
 {
     public static $permission = [
-        'all-user' => ['admin', 'user', 'seller'],
+        'all-user' => ['admin', 'user', 'owner'],
         'super-user' => ['admin'],
         'user-only' => ['user'],
-        'seller-only' => ['seller'],
+        'owner-only' => ['owner'],
     ];
     /**
      * The model to policy mappings for the application.
