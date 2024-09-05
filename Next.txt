@@ -8,4 +8,3 @@
 
 =============
 - pada list product tabel hanya nama yang berfungsi untuk query search
-- Fungsi Delete Product masih tidak bergunsi

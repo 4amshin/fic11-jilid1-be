@@ -98,6 +98,8 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
+        $this->deleteOldFile('public/products', $product->image);
+
         $product->delete();
 
         return redirect()->route('product.index')->with('info', 'Product Deleted');

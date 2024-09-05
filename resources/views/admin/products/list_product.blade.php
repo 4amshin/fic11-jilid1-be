@@ -170,16 +170,21 @@
     <script src="{{ asset('assets/js/pages/apps-user-list.init.js') }}"></script>
 
     <script>
-        document.addEvenListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function() {
             const deleteButtons = document.querySelectorAll('.remove-item-btn');
 
             deleteButtons.forEach(button => {
-                button.addEvenListener('click', function() {
+                button.addEventListener('click', function() {
                     const productId = this.getAttribute('data-product-id');
 
+                    // Dapatkan form dan ubah action URL dengan mengganti :id
                     const form = document.getElementById('deleteForm');
                     const actionUrl = form.getAttribute('action').replace(':id', productId);
                     form.setAttribute('action', actionUrl);
+
+                    // Menampilkan modal (pastikan ini bekerja sesuai framework/modal yang digunakan)
+                    const deleteModal = document.getElementById('deleteModal');
+                    deleteModal.classList.remove('hidden');
                 });
             });
         });
