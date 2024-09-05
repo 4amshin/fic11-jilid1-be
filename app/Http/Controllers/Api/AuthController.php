@@ -3,11 +3,13 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\LoginApiRequest;
 use App\Http\Requests\RegisterApiRequest;
 use App\Http\Resources\LoginResource;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\ValidationException;
 
 class AuthController extends Controller
 {
@@ -24,8 +26,33 @@ class AuthController extends Controller
         ]);
     }
 
-    public function login() {
+    public function login(LoginApiRequest $request) {
+        $validatedData = $request->validated();
 
+        //check user base on email
+        $user = User::where('email', $validatedData['email'])->first();
+        if(!$user) {
+            throw ValidationException::withMessages([
+                'email' => ['Email tidak sesuai'],
+            ]);
+        }
+
+        //Alert For Wrong Password
+        if (!Hash::check($validatedData['password'], $user->password)) {
+            throw ValidationException::withMessages([
+                'password' => ['Password tidak sesuai'],
+            ]);
+        }
+
+        //Delete Old Token and Generate New One
+        $user->tokens()->delete();
+        $token = $user->createToken('token')->plainTextToken;
+
+        //return Response
+        return new LoginResource([
+            'token' => $token,
+            'user' => $user,
+        ]);
     }
 
     public function logout() {
