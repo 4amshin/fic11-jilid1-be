@@ -8,3 +8,4 @@
 
 =============
 - pada list product tabel hanya nama yang berfungsi untuk query search
+- Setup API Authorization later
