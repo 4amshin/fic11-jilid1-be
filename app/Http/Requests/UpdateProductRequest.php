@@ -23,11 +23,11 @@ class UpdateProductRequest extends FormRequest
     {
         return [
             'name' => 'required|string',
-            'description' => 'nullable|string',
             'price' => 'required|integer',
             'stock' => 'required|integer',
             'category' => 'required|string',
             'image' => 'nullable|mimes:png,jpg',
+            'is_best_seller' => 'required|boolean',
         ];
     }
 }

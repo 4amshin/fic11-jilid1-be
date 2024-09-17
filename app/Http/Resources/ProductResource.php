@@ -17,15 +17,15 @@ class ProductResource extends JsonResource
         return [
             'id' => $this->id,
             'name' => ucwords($this->name),
-            'description' => $this->description,
-            'price' => $this->formatRupiah($this->price),
+            'price' => $this->price,
             'stock' => $this->stock,
             'category' => $this->category,
             'image' => $this->image,
+            'is_best_seller' => $this->is_best_seller
         ];
     }
 
-    private function formatRupiah($value){
-        return 'Rp ' . number_format($value, 0, ',', '.');
-    }
+    // private function formatRupiah($value){
+    //     return 'Rp ' . number_format($value, 0, ',', '.');
+    // }
 }

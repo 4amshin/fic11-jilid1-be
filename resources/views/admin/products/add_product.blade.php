@@ -75,17 +75,6 @@
                                 <input type="file" id="upload" name="image" class="cursor-pointer form-file border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500" placeholder="Enter your name">
                             </div>
 
-                            <!--Description-->
-                            <div class="lg:col-span-2 xl:col-span-12">
-                                <div>
-                                    <label for="productDescription"
-                                        class="inline-block mb-2 text-base font-medium">Description</label>
-                                    <textarea
-                                        class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200"
-                                        id="productDescription" name="description" placeholder="Enter Description" rows="5"></textarea>
-                                </div>
-                            </div>
-
                         </div>
 
                         <!--Buttons-->

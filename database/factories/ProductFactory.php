@@ -18,11 +18,11 @@ class ProductFactory extends Factory
     {
         return [
             'name' => $this->faker->word(),
-            'description' => $this->faker->paragraph(),
             'price' => $this->faker->numberBetween(1000, 100000),
             'stock' => $this->faker->numberBetween(1, 100),
             'category' => $this->faker->randomElement(['food', 'drink', 'snack']),
             'image' => null,
+            'is_best_seller' => $this->faker->boolean(50),
         ];
     }
 }
