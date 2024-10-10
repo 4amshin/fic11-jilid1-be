@@ -4,14 +4,14 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreProductRequest extends FormRequest
+class StoreOrderRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
     {
-        return true;
+        return false;
     }
 
     /**
@@ -22,12 +22,11 @@ class StoreProductRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|string',
-            'price' => 'required|integer',
-            'stock' => 'required|integer',
-            'category' => 'required|string',
-            'image' => 'nullable|mimes:png,jpg',
-            'is_best_seller' => 'nullable|boolean',
+            'transaction_time' => 'required|date',
+            'total_price'      => 'required|integer|min:0',
+            'total_item'       => 'required|integer|min:1',
+            'kasir_id'         => 'required|exists:users,id', // Validasi kasir_id harus ada di tabel users
+            'payment_method'   => 'required|in:cash,qris',
         ];
     }
 }
