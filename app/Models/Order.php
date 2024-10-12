@@ -22,4 +22,9 @@ class Order extends Model
         return $this->belongsTo(User::class, 'kasir_id', 'id')
             ->where('role', 'pegawai');
     }
+
+    public function items()
+    {
+        return $this->hasMany(OrderItem::class, 'order_id', 'id');
+    }
 }

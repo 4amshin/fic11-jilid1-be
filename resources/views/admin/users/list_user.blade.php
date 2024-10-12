@@ -51,16 +51,16 @@
                             <thead class="text-left">
                                 <tr
                                     class="relative rounded-md bg-slate-100 dark:bg-zink-600 after:absolute ltr:after:border-l-2 rtl:after:border-r-2 ltr:after:left-0 rtl:after:right-0 after:top-0 after:bottom-0 after:border-transparent [&.active]:after:border-custom-500 [&.active]:bg-slate-100 dark:[&.active]:bg-zink-600">
-                                    <th class="px-3.5 py-2.5 first:pl-5 last:pr-5 font-semibold sort" data-sort="name">Name
+                                    <th class="px-3.5 py-2.5 first:pl-5 last:pr-5 font-semibold sort" data-sort="transaction_time">Transaction Time
                                     </th>
                                     <th class="px-3.5 py-2.5 first:pl-5 last:pr-5 font-semibold sort"
-                                        data-sort="phone-number">Phone Number</th>
+                                        data-sort="kasir">Kasir</th>
                                     <th class="px-3.5 py-2.5 first:pl-5 last:pr-5 font-semibold sort" data-sort="status">
-                                        Role</th>
+                                        Total Item</th>
                                     <th class="px-3.5 py-2.5 first:pl-5 last:pr-5 font-semibold sort" data-sort="email">
-                                        Email</th>
+                                        Total Price</th>
                                     <th class="px-3.5 py-2.5 first:pl-5 last:pr-5 font-semibold sort" data-sort="password">
-                                        Password</th>
+                                        Payment Method</th>
                                     <th class="px-3.5 py-2.5 first:pl-5 last:pr-5 font-semibold">Action</th>
                                 </tr>
                             </thead>

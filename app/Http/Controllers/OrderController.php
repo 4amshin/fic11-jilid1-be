@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Order;
 use App\Http\Requests\StoreOrderRequest;
 use App\Http\Requests\UpdateOrderRequest;
+use App\Models\OrderItem;
 
 class OrderController extends Controller
 {
@@ -13,7 +14,9 @@ class OrderController extends Controller
      */
     public function index()
     {
-        //
+        $orders = Order::orderBy('created_at', 'desc')->paginate(5);
+
+        return view('admin.orders.list_order', compact('orders'));
     }
 
     /**
@@ -37,7 +40,8 @@ class OrderController extends Controller
      */
     public function show(Order $order)
     {
-        //
+        $orderItems = OrderItem::where('order_id', $order->id)->get();
+        return view('admin.orders.order_detail', compact('orderItems', 'order'));
     }
 
     /**
