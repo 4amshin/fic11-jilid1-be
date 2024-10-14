@@ -12,7 +12,7 @@ class DatabaseSeeder extends Seeder
 {
     /**
      * Seed the application's database.
-     */
+*/
     public function run(): void
     {
         $this->call([
@@ -20,9 +20,9 @@ class DatabaseSeeder extends Seeder
             ProductSeeder::class,
         ]);
 
-        Order::factory()
-                ->has(OrderItem::factory()->count(3),'items')
-                ->count(10)
-                ->create();
+        // Order::factory()
+        //         ->has(OrderItem::factory()->count(3),'items')
+        //         ->count(2)
+        //         ->create();
     }
 }

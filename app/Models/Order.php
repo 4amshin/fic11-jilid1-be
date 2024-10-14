@@ -19,8 +19,7 @@ class Order extends Model
 
     public function kasir()
     {
-        return $this->belongsTo(User::class, 'kasir_id', 'id')
-            ->where('role', 'pegawai');
+        return $this->belongsTo(User::class, 'kasir_id', 'id');
     }
 
     public function items()

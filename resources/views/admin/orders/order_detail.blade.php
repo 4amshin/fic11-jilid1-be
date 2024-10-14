@@ -19,7 +19,7 @@
                                     <div class="flex items-center gap-3">
                                         <div
                                             class="flex items-center justify-center rounded-md size-12 bg-slate-100 shrink-0">
-                                            <img src="assets/images/img-08.png" alt="" class="h-8">
+                                            <img src="{{ $item->product->image ? '/storage/products/' . $item->product->image : asset('assets/images/delivery-1.png') }}" alt="" class="h-8">
                                         </div>
                                         <div class="grow">
                                             <h6 class="mb-1 text-15"><a href="apps-ecommerce-product-overview.html"

@@ -34,7 +34,7 @@ class OrderApiController extends Controller
             'total_price' => 'required|numeric',
             'total_item' => 'required|numeric',
             'kasir_id' => 'required|exists:users,id',
-            'payment_method' => 'required|in:cash,qris',
+            'payment_method' => 'required|in:Tunai,QRIS',
             'order_items' => 'required|array',
             'order_items.*.product_id' => 'required|exists:products,id', // Typo diperbaiki
             'order_items.*.quantity' => 'required|numeric',
